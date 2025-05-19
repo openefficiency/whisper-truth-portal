@@ -1,8 +1,12 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Phone, MessageSquare, FileText, Home, Shield } from "lucide-react";
+import CallManagement from "@/components/vapi/CallManagement";
+import CallAnalysis from "@/components/vapi/CallAnalysis";
+import ReportGeneration from "@/components/vapi/ReportGeneration";
 
 const VapiDashboard = () => {
   const [activeTab, setActiveTab] = useState("calls");
@@ -43,43 +47,16 @@ const VapiDashboard = () => {
             </TabsTrigger>
           </TabsList>
           
-          <TabsContent value="calls" className="p-6 bg-whistle-blue rounded-lg border border-gray-700">
-            <h2 className="text-xl font-semibold text-white mb-4">Call Management</h2>
-            <p className="text-gray-300 mb-8">
-              This section will include features for initiating outbound calls, 
-              selecting call scripts, and monitoring call status.
-            </p>
-            <div className="bg-whistle-darker p-6 rounded-lg border border-gray-700">
-              <p className="text-center text-gray-400">
-                Call management features will be implemented in the next phase.
-              </p>
-            </div>
+          <TabsContent value="calls">
+            <CallManagement />
           </TabsContent>
           
-          <TabsContent value="analysis" className="p-6 bg-whistle-blue rounded-lg border border-gray-700">
-            <h2 className="text-xl font-semibold text-white mb-4">Call Analysis</h2>
-            <p className="text-gray-300 mb-8">
-              This section will include call history, audio playback, transcript viewing, 
-              and AI-assisted analysis tools.
-            </p>
-            <div className="bg-whistle-darker p-6 rounded-lg border border-gray-700">
-              <p className="text-center text-gray-400">
-                Call analysis features will be implemented in the next phase.
-              </p>
-            </div>
+          <TabsContent value="analysis">
+            <CallAnalysis />
           </TabsContent>
           
-          <TabsContent value="reports" className="p-6 bg-whistle-blue rounded-lg border border-gray-700">
-            <h2 className="text-xl font-semibold text-white mb-4">Report Generation</h2>
-            <p className="text-gray-300 mb-8">
-              This section will include forms to create new whistleblower reports from call data,
-              with AI-assisted data extraction.
-            </p>
-            <div className="bg-whistle-darker p-6 rounded-lg border border-gray-700">
-              <p className="text-center text-gray-400">
-                Report generation features will be implemented in the next phase.
-              </p>
-            </div>
+          <TabsContent value="reports">
+            <ReportGeneration />
           </TabsContent>
         </Tabs>
       </div>

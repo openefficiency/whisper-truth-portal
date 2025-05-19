@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText, CheckSquare, Phone, Award, Home } from "lucide-react";
+import ReportManagement from "@/components/admin/ReportManagement";
+import Investigation from "@/components/admin/Investigation";
+import RewardSystem from "@/components/admin/RewardSystem";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("reports");
@@ -47,56 +50,35 @@ const AdminDashboard = () => {
             </TabsTrigger>
           </TabsList>
           
-          <TabsContent value="reports" className="p-6 bg-whistle-blue rounded-lg border border-gray-700">
-            <h2 className="text-xl font-semibold text-white mb-4">Report Management</h2>
-            <p className="text-gray-300 mb-8">
-              This section will include features for viewing and managing whistleblower reports,
-              with filtering, sorting, and detailed views.
-            </p>
-            <div className="bg-whistle-darker p-6 rounded-lg border border-gray-700">
-              <p className="text-center text-gray-400">
-                Report management features will be implemented in the next phase.
+          <TabsContent value="reports">
+            <ReportManagement />
+          </TabsContent>
+          
+          <TabsContent value="investigation">
+            <Investigation />
+          </TabsContent>
+          
+          <TabsContent value="calls">
+            <div className="p-6 bg-whistle-blue rounded-lg border border-gray-700">
+              <h2 className="text-xl font-semibold text-white mb-4">Call Integration</h2>
+              <p className="text-gray-300 mb-8">
+                This section will include features for reviewing calls associated with reports,
+                initiating new calls, and adding transcripts to investigation notes.
               </p>
+              <div className="bg-whistle-darker p-6 rounded-lg border border-gray-700">
+                <p className="text-gray-400">
+                  The call integration features are connected with the Vapi Dashboard. You can access
+                  call data from specific reports or initiate new calls directly from investigation cases.
+                </p>
+                <Button className="mt-4 bg-whistle-accent hover:bg-whistle-green">
+                  <Phone className="mr-2 h-4 w-4" /> Go to Vapi Dashboard
+                </Button>
+              </div>
             </div>
           </TabsContent>
           
-          <TabsContent value="investigation" className="p-6 bg-whistle-blue rounded-lg border border-gray-700">
-            <h2 className="text-xl font-semibold text-white mb-4">Investigation Tools</h2>
-            <p className="text-gray-300 mb-8">
-              This section will include tools for tracking investigation progress,
-              managing notes, assigning tasks, and monitoring completion.
-            </p>
-            <div className="bg-whistle-darker p-6 rounded-lg border border-gray-700">
-              <p className="text-center text-gray-400">
-                Investigation tools will be implemented in the next phase.
-              </p>
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="calls" className="p-6 bg-whistle-blue rounded-lg border border-gray-700">
-            <h2 className="text-xl font-semibold text-white mb-4">Call Integration</h2>
-            <p className="text-gray-300 mb-8">
-              This section will include features for reviewing calls associated with reports,
-              initiating new calls, and adding transcripts to investigation notes.
-            </p>
-            <div className="bg-whistle-darker p-6 rounded-lg border border-gray-700">
-              <p className="text-center text-gray-400">
-                Call integration features will be implemented in the next phase.
-              </p>
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="rewards" className="p-6 bg-whistle-blue rounded-lg border border-gray-700">
-            <h2 className="text-xl font-semibold text-white mb-4">Reward System</h2>
-            <p className="text-gray-300 mb-8">
-              This section will include features for issuing monetary rewards for valuable reports,
-              tracking reward status, and configuring notifications.
-            </p>
-            <div className="bg-whistle-darker p-6 rounded-lg border border-gray-700">
-              <p className="text-center text-gray-400">
-                Reward system features will be implemented in the next phase.
-              </p>
-            </div>
+          <TabsContent value="rewards">
+            <RewardSystem />
           </TabsContent>
         </Tabs>
       </div>
